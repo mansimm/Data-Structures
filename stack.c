@@ -99,7 +99,7 @@ void topElement(int stk[])
 	int x;
 	if(isEmpty(stk))
 	{
-		printf("\n	Sorry stack is empty, Cannot pop !");
+		printf("\n	Sorry stack is empty!");
 	}
 	else
 	{
