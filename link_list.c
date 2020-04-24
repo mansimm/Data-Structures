@@ -12,10 +12,11 @@ void insert(int x);
 void delete(int x);
 void show();
 void search(int x);
+void sorting();
 int main()
 {
 	int choise=1,x;
-	while(choise!=5)
+	while(choise!=6)
 	{
 		printf("\n\n ---------------------------------------------------------\n");
 		printf("\n		Link List Operations");
@@ -23,7 +24,8 @@ int main()
 		printf("\n	2) Delete");
 		printf("\n	3) Show");
 		printf("\n	4) Search");
-		printf("\n	5) Exit");
+		printf("\n	5) Sorting");
+		printf("\n	6) Exit");
 		printf("\n     Enter your choise : ");
 		scanf("%d",&choise);
 
@@ -47,7 +49,12 @@ int main()
 				search(x);
 				break;
 
-			case 5: printf("\n\n	Thank you ! \n");
+			case 5: sorting();
+				printf("\n	Sorted link list is : ");
+				show();
+				break;
+
+			case 6: printf("\n\n	Thank you ! \n");
 				break;
 			default: printf("\n	Please enter vallide choise ..............");
 
@@ -56,6 +63,26 @@ int main()
 
 
 
+
+}
+void sorting()
+{
+	struct node*p;
+	struct node*q;
+
+	for(p=head;p!=NULL;p=p->next)
+	{
+		for(q=p->next;q!=NULL;q=q->next)
+		{
+			if(q->data<p->data)
+			{
+				int temp;
+				temp=p->data;
+				p->data=q->data;
+				q->data=temp;
+			}
+		}
+	}
 
 }
 
@@ -165,9 +192,7 @@ void search(int x)
 	}
 }
 
-/*   OUTPUT
-
-
+/*   OUTPUT of sorting operation
 (base) mansi@mansi-Vostro-15-3568:~$ gcc link_list.c
 (base) mansi@mansi-Vostro-15-3568:~$ ./a.out
 
@@ -179,7 +204,8 @@ void search(int x)
 	2) Delete
 	3) Show
 	4) Search
-	5) Exit
+	5) Sorting
+	6) Exit
      Enter your choise : 1
 
 	Enter data : 11
@@ -192,7 +218,50 @@ void search(int x)
 	2) Delete
 	3) Show
 	4) Search
-	5) Exit
+	5) Sorting
+	6) Exit
+     Enter your choise : 1
+
+	Enter data : 99
+
+
+ ---------------------------------------------------------
+
+		Link List Operations
+	1) Insert
+	2) Delete
+	3) Show
+	4) Search
+	5) Sorting
+	6) Exit
+     Enter your choise : 1
+
+	Enter data : 44
+
+
+ ---------------------------------------------------------
+
+		Link List Operations
+	1) Insert
+	2) Delete
+	3) Show
+	4) Search
+	5) Sorting
+	6) Exit
+     Enter your choise : 1
+
+	Enter data : 88
+
+
+ ---------------------------------------------------------
+
+		Link List Operations
+	1) Insert
+	2) Delete
+	3) Show
+	4) Search
+	5) Sorting
+	6) Exit
      Enter your choise : 1
 
 	Enter data : 22
@@ -205,22 +274,10 @@ void search(int x)
 	2) Delete
 	3) Show
 	4) Search
-	5) Exit
-     Enter your choise : 1
-
-	Enter data : 33
-
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
+	5) Sorting
+	6) Exit
      Enter your choise : 3
-  11 ->  22 ->  33 ->
+  11 ->  99 ->  44 ->  88 ->  22 ->
 
  ---------------------------------------------------------
 
@@ -229,112 +286,42 @@ void search(int x)
 	2) Delete
 	3) Show
 	4) Search
-	5) Exit
-     Enter your choise : 2
-
-	Enter data which you want to delete : 22
-	22 is deleted from link list .
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
-     Enter your choise : 3
-  11 ->  33 ->
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
-     Enter your choise : 4
-
-	Enter the data to search : 11
-
-	Element is found at location : 1
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
-     Enter your choise : 4
-
-	Enter the data to search : 66
-	Sorry , 66 is not present in link list !
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
-     Enter your choise : 2
-
-	Enter data which you want to delete : 11
-	11 is deleted from link list .
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
-     Enter your choise : 3
-  33 ->
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
-     Enter your choise : 2
-
-	Enter data which you want to delete : 33
-	33 is deleted from link list .
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
-     Enter your choise : 3
-
-	Sorry , link list is empty !!!
-
- ---------------------------------------------------------
-
-		Link List Operations
-	1) Insert
-	2) Delete
-	3) Show
-	4) Search
-	5) Exit
+	5) Sorting
+	6) Exit
      Enter your choise : 5
+
+	Sorted link list is :   11 ->  22 ->  44 ->  88 ->  99 ->
+
+ ---------------------------------------------------------
+
+		Link List Operations
+	1) Insert
+	2) Delete
+	3) Show
+	4) Search
+	5) Sorting
+	6) Exit
+     Enter your choise : 3
+  11 ->  22 ->  44 ->  88 ->  99 ->
+
+ ---------------------------------------------------------
+
+		Link List Operations
+	1) Insert
+	2) Delete
+	3) Show
+	4) Search
+	5) Sorting
+	6) Exit
+     Enter your choise : 6
 
 
 	Thank you ! 
 (base) mansi@mansi-Vostro-15-3568:~$ 
+
+
+
+
 
 */
 
